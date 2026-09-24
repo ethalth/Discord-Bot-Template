@@ -1,0 +1,8 @@
+# Folders
+node_modules/
+src/database/
+dist/
+
+# Files
+.env
+
