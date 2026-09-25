@@ -1,10 +1,4 @@
 import fs from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from "node:url";
-
-const log = console.log;
-const __filename: string = fileURLToPath(import.meta.url);
-const __dirname: string = path.dirname(__filename);
 
 interface loadTypes {
   type: string,

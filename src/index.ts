@@ -2,13 +2,20 @@ import "dotenv/config";
 import { Events } from 'discord.js';
 import process from 'node:process';
 import Database from "better-sqlite3";
-import prefixHandler from './handlers/prefixHandler.js';
+import { prefixHandler } from './handlers/prefixHandler.js';
+import { slashHandler } from './handlers/slashHandler.js';
 import { client } from './core/client.js';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import deploySlashCommands from './core/deployCommands.js';
 
 // Events
-import './events/messageCreate.js';
+import './events/prefixListener.js';
 
-export const db = new Database("./database/database.db");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export const db = new Database(path.join(__dirname, "../../src/database/database.db"));
 
 // How long it took to start bot
 const $execTimeStart: number = Date.now();
@@ -42,15 +49,30 @@ try {
 
 // PREFIX
 await prefixHandler();
+// SLASH
+await slashHandler();
+// INTERACTIONS 
+
+// EVENTS
 
 
+//-------------------
+//---DEPLOY----------
+//-------------------
+await deploySlashCommands();
 
 client.once(Events.ClientReady, (readyClient) => {
   const $execTimeEnd: number = Date.now();
   const $execTimeTotal = Math.floor(($execTimeEnd - $execTimeStart) / 1000);
-  log('Index Execution Time:',$execTimeTotal,'s');
-  log(`Currently pinging at: ${client.ws.ping}ms`);
   log(`Logged in as ${readyClient.user.tag}`);
+  log('========Loaded Commands========');
+  log(`Prefix: ${client.prefix.size}`);
+  log(`Slash: ${client.slash.size}`);
+  log(`Interactions: ${client.interactions.size}`);
+  log(`Events: ${client.events.size}`);
+  log('==========Other Shit===========');
+  log(`Executed in: ${$execTimeTotal}seconds`);
+  log(`Logged in with a ping of ${client.ws.ping}ms`);
 });
 
 client.login(token);
