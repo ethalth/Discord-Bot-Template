@@ -61,9 +61,56 @@ Follow these instructions to set up a local copy of the project.
 - npm
 - A Discord application and bot token from the [Discord Developer Portal](https://discord.com/developers/applications)
 
-### Installation
+## Installation
 
-1. Clone the repository:
+### 1. Clone the repository
 
-   ```bash
-   git clone https://github.com/ethalth/Discord-Bot-Template.git
+Clone the repository to your local machine using Git:
+
+```bash
+git clone https://github.com/ethalth/Discord-Bot-Template.git
+```
+
+### 2. Navigate to the project directory
+
+Move into the newly cloned repository:
+
+```bash
+cd Discord-Bot-Template
+```
+
+### 3. Install dependencies
+
+Install the packages required by the bot using npm:
+
+```bash
+npm install
+```
+
+### 4. Configure environment variables
+
+Rename `.env.example` to `.env`. This file contains the environment variable template used to configure the bot.
+
+```bash
+mv .env.example .env
+```
+
+Open `.env` and fill in the required values, such as your Discord bot token and command prefix. Use the variable names provided in the file.
+
+**Never share your bot token or commit your `.env` file to the repository.**
+
+### 5. Build the project
+
+Compile the TypeScript source code into JavaScript:
+
+```bash
+npm run build
+```
+
+### 6. Start the bot
+
+Run the start script defined in `package.json` to launch the bot:
+
+```bash
+npm start
+```
