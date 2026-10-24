@@ -1,5 +1,5 @@
 import GetCommandFiles from './discoverCommands.js'
-import commandCollection from '../client/commandCollections.js'
+import commandCollections from '../client/commandCollections.js'
 
 const commands = GetCommandFiles();
 for (const command of Object.values(commands)) {
@@ -11,7 +11,7 @@ for (const command of Object.values(commands)) {
       continue;
     }
       
-    commandCollection.prefix.set(
+    commandCollections.prefix.set(
       prefixCommandModule.default.name,
       prefixCommandModule.default
     );
@@ -20,7 +20,7 @@ for (const command of Object.values(commands)) {
     const aliases = prefixCommandModule.default.aliases ?? [];
     for (const alias of aliases) {
       
-      commandCollection.prefix.set(
+      commandCollections.prefix.set(
         alias,
         prefixCommandModule.default
       );
@@ -36,7 +36,7 @@ for (const command of Object.values(commands)) {
 
         const slashCommandData = slashCommandModule.default.data.toJSON();
         if (!command) console.error(new Error('The method: \'.setName\' was undefined in \'data\''));
-        commandCollection.slash.set(
+        commandCollections.slash.set(
           slashCommandData.name,
           slashCommandModule.default
         );
@@ -50,9 +50,9 @@ for (const command of Object.values(commands)) {
     if (command.eventFilePath) {
       const eventHandler = await import(command.eventFilePath);
       if (eventHandler.default?.event) {
-        commandCollection.event.set(
-          eventHandler.default.event,
-          eventHandler.default
+        commandCollections.event.set(
+          command.eventFilePath,
+          eventHandler.default.event
         );
         
       }
@@ -63,7 +63,7 @@ for (const command of Object.values(commands)) {
       const interactionHandler = await import(command.interactionFilePath);
       if (interactionHandler.default?.customId) {
    
-        commandCollection.interaction.set(
+        commandCollections.interaction.set(
           interactionHandler.default.customId,
           interactionHandler.default
         );

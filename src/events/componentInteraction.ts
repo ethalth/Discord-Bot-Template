@@ -1,6 +1,6 @@
 import { Events } from 'discord.js'
 import client from '../client/client.js'
-import commandCollection from '../client/commandCollections.js'
+import commandCollections from '../client/commandCollections.js'
 import type {Interaction} from 'discord.js'
 
 client.on(Events.InteractionCreate, async (interaction: Interaction) => {
@@ -10,7 +10,7 @@ client.on(Events.InteractionCreate, async (interaction: Interaction) => {
 
   const customId = interaction.customId;
   if (!customId) return;
-  const interactionHandler = commandCollection.interaction.get(customId);
+  const interactionHandler = commandCollections.interaction.get(customId);
   if (!interactionHandler) return;
   await interactionHandler.execute(interaction);
 })

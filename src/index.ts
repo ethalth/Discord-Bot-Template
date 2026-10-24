@@ -1,14 +1,16 @@
-import 'dotenv/config';
 import client from '#root/dist/src/client/client.js';
-import { Events } from 'discord.js';
-import './events/messageCreate.js'
-import './handlers/loadCommands.js'
-import './database/schema.js'
-import './handlers/deploySlashCommands.js'
-import './events/slashCommandCreate.js'
-import './events/componentInteraction.js'
 import commandCollections from './client/commandCollections.js'
+import 'dotenv/config';
 
+await import('./handlers/loadCommands.js');
+await import ('./events/customEvents/registerCustomEvents.js');
+await import ('./events/prefixCommands.js')
+await import ('./database/schema.js')
+await import ('./handlers/deploySlashCommands.js')
+await import ('./events/slashCommandCreate.js')
+await import ('./events/componentInteraction.js')
+
+import { Events } from 'discord.js';
 const TOKEN: string|undefined = process.env.BOT_TOKEN;
 if (!TOKEN)
   throw new Error('\x1b[1;31mInvalid Bot Token.\x1b[0m');

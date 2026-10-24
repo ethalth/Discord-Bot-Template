@@ -1,13 +1,13 @@
 import { Events } from 'discord.js'
 import client from '../client/client.js'
-import db from '../database/connection.js'
-import commandCollection from '../client/commandCollections.js'
+import Db from '../database/connection.js'
+import commandCollections from '../client/commandCollections.js'
 import type { Message } from 'discord.js'
 
 client.on(Events.MessageCreate, async (message: Message) => {
   // Prefix
   if (!message.guild) return;
-  const {prefix} = db
+  const {prefix} = Db
     .prepare(`SELECT * FROM guild WHERE id=?`)
     .get(message.guild.id) as { prefix: string } ?? { prefix: process.env.BOT_PREFIX };
 
@@ -21,7 +21,7 @@ client.on(Events.MessageCreate, async (message: Message) => {
       .slice(prefix.length)
       .split(' ')[0] as string;
 
-    const prefixCommand = commandCollection.prefix.get(commandName);
+    const prefixCommand = commandCollections.prefix.get(commandName);
     if (!prefixCommand) return;
     await prefixCommand.execute(message);
   }
