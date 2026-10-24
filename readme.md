@@ -1,11 +1,17 @@
-# Meowles-Bot
+<div align="center">
+  <img src="https://cdn.discordapp.com/avatars/1526658888982855894/16dc88f73dc8296bbed8edc9455e871e.png?size=256" alt="Meowles-Bot Logo" width="150" height="150" />
 
-A modular Discord bot template built with TypeScript and discord.js.
+  # Meowles-Bot
 
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![discord.js](https://img.shields.io/badge/discord.js-5865F2?logo=discord&logoColor=white)](https://discord.js.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-[![License](https://img.shields.io/github/license/ethalth/Discord-Bot-Template)](LICENSE)
+  A modular Discord bot template built with TypeScript and discord.js.
+
+  [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+  [![discord.js](https://img.shields.io/badge/discord.js-5865F2?logo=discord&logoColor=white)](https://discord.js.org/)
+  [![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+  [![License](https://img.shields.io/github/license/ethalth/Discord-Bot-Template)](LICENSE)
+
+  [Explore the Repository](https://github.com/ethalth/Discord-Bot-Template) · [Report a Bug](https://github.com/ethalth/Discord-Bot-Template/issues) · [Request a Feature](https://github.com/ethalth/Discord-Bot-Template/issues)
+</div>
 
 ## Table of Contents
 
@@ -17,6 +23,9 @@ A modular Discord bot template built with TypeScript and discord.js.
   - [Installation](#installation)
   - [Configuration](#configuration)
 - [Usage](#usage)
+- [Repository](#repository)
+- [Issues](#issues)
+- [Continuous Integration](#continuous-integration)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -37,12 +46,10 @@ The project uses a modular structure to organise commands, interactions, and eve
 
 ## Built With
 
-This project uses the following technologies and libraries:
-
-- [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-- [![discord.js](https://img.shields.io/badge/discord.js-5865F2?logo=discord&logoColor=white)](https://discord.js.org/)
-- [![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
-- [![dotenv](https://img.shields.io/badge/dotenv-ECD53F?logo=dotenv&logoColor=black)](https://www.npmjs.com/package/dotenv)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![discord.js](https://img.shields.io/badge/discord.js-5865F2?logo=discord&logoColor=white)](https://discord.js.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![dotenv](https://img.shields.io/badge/dotenv-ECD53F?logo=dotenv&logoColor=black)](https://www.npmjs.com/package/dotenv)
 
 ## Getting Started
 
