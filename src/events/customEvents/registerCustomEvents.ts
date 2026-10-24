@@ -4,7 +4,6 @@ import type { Message } from 'discord.js'
 
 commandCollections.event.forEach((name, event) => {
   client.on(name, async (message: Message) => {
-    if (message.author.bot) return;
     const eventCommand = await import(event);
     if (!eventCommand) return;
     const eventCommandDefault = eventCommand.default;
