@@ -1,6 +1,14 @@
 import client from '#root/dist/src/client/client.js';
 import commandCollections from './client/commandCollections.js'
 import 'dotenv/config';
+import fs from 'node:fs/promises';
+
+// A check to see if .env exists
+try {
+  (await fs.access('./.env'))
+} catch {
+  throw new Error(`The file: \x1b[33m.env\x1b[0mdoes not exist`);
+}
 
 await import('./handlers/loadCommands.js');
 await import ('./events/customEvents/registerCustomEvents.js');
