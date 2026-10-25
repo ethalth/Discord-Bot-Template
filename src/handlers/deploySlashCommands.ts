@@ -21,9 +21,21 @@ const rest = new REST({ version: '10' }).setToken(
     process.env.BOT_TOKEN as string
   );
 
+// If there is a guild ID in the .env file
+if (process.env.BOT_PRIVATE_GUILD !== '0') {
+  await rest.put(
+    Routes.applicationGuildCommands(
+      process.env.BOT_CLIENT_ID as string,
+      process.env.BOT_PRIVATE_GUILD as string
+    ),
+    { body: slashCommandPayloads }
+  )
+    } else {
+  // If there is no guild ID in the .env file
   await rest.put(
   Routes.applicationCommands(
     process.env.BOT_CLIENT_ID as string
   ),
   { body: slashCommandPayloads }
 );
+    }
