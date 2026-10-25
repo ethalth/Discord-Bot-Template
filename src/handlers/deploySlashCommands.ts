@@ -11,7 +11,7 @@ for (const command of Object.values(discoveredCommands)) {
   const slashCommandData = slashCommandModule.default?.data?.toJSON();
  
   if (!slashCommandData) {
-    console.error(new Error(`Command: ${command.commandName} is missing a 'data' property`));
+    console.error(new Error(`Command: \x1b[31m${command.commandName}\x1b[0m is missing a 'data' property`));
     continue;
   }
   slashCommandPayloads.push(slashCommandData);
