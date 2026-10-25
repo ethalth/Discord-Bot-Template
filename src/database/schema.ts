@@ -7,5 +7,6 @@ CREATE TABLE IF NOT EXISTS user (
 
 Db.exec(`
 CREATE TABLE IF NOT EXISTS guild (
-  id STRING PRIMARY KEY
+  id STRING PRIMARY KEY,
+  prefix STRING
   )`);
