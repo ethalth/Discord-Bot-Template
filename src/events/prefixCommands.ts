@@ -7,9 +7,12 @@ import type { Message } from 'discord.js'
 client.on(Events.MessageCreate, async (message: Message) => {
   // Prefix
   if (!message.guild) return;
-  const {prefix} = Db
-    .prepare(`SELECT * FROM guild WHERE id=?`)
-    .get(message.guild.id) as { prefix: string } ?? { prefix: process.env.BOT_PREFIX };
+
+  const result = Db
+    .prepare(`SELECT prefix FROM guild WHERE id=?`)
+    .get(message.guild.id) as { prefix: string } | undefined;
+  
+  const {prefix} = result ?? { prefix: process.env.BOT_PREFIX ?? '>' };
 
   // If message Author is a bot 
   if (message.author.bot) return;
