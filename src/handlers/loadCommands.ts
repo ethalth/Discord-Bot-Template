@@ -54,7 +54,6 @@ for (const command of Object.values(commands)) {
           command.eventFilePath,
           eventHandler.default.event
         );
-        
       }
     }
   

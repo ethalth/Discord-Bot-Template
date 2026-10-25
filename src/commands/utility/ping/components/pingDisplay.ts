@@ -1,5 +1,6 @@
 import { ContainerBuilder, ButtonStyle } from 'discord.js'
 import colors from '#root/dist/src/assets/colors.js'
+import emojis from '#root/dist/src/assets/emojis.js'
 
 function createPingDisplay(ping: string): ContainerBuilder {
   const container = new ContainerBuilder()
@@ -11,8 +12,9 @@ function createPingDisplay(ping: string): ContainerBuilder {
     .setButtonAccessory((button) => button
       .setCustomId('ping_button_refresh')
       .setLabel('Refresh')
-      .setStyle(ButtonStyle.Primary))
-  )
+      .setStyle(ButtonStyle.Primary)
+    )
+  );
   return container;
 }
 
