@@ -70,7 +70,7 @@ for (const command of Object.values(commands)) {
           eventHandler.default.event
         );
       } else {
-        console.error(new Error(`'event' was undefined in: \x1b[31m${command.eventFilePath}\x1b[0m`));
+        console.error(new Error(`'event' was undefined in: \x1b[33m${command.eventFilePath}\x1b[0m`));
         continue;
       }
     }
@@ -86,7 +86,7 @@ for (const command of Object.values(commands)) {
         );
         
       } else {
-        console.error(new Error(`'customId' was undefined in: \x1b[31m${command.interactionFilePath}\x1b[0m`));
+        console.error(new Error(`'customId' was undefined in: \x1b[33m${command.interactionFilePath}\x1b[0m`));
         continue;
       }
     }
