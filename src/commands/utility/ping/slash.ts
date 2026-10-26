@@ -1,10 +1,11 @@
 import type { ChatInputCommandInteraction } from 'discord.js'
 import { SlashCommandBuilder, MessageFlags } from 'discord.js'
 import createPingDisplay from './components/pingDisplay.js'
+import pingMeta from './meta/metadata.js'
 
 const slashData = new SlashCommandBuilder();
 slashData.setName('ping');
-slashData.setDescription('View the bots ping');
+slashData.setDescription(pingMeta.description);
 slashData.addBooleanOption((option) => option
   .setName('ephemeral')
   .setDescription('Make the message viewable to you only!')

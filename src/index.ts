@@ -18,6 +18,8 @@ await import ('./handlers/deploySlashCommands.js')
 await import ('./events/slashCommandCreate.js')
 await import ('./events/componentInteraction.js')
 
+
+
 import { Events } from 'discord.js';
 const TOKEN: string|undefined = process.env.BOT_TOKEN;
 if (!TOKEN)
@@ -34,3 +36,5 @@ client.once(Events.ClientReady, (readyClient) => {
 })
 
 client.login(TOKEN);
+
+// Exports 
