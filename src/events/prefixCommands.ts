@@ -1,21 +1,11 @@
 import { Events } from 'discord.js'
 import client from '../client/client.js'
-import Db from '../database/connection.js'
 import commandCollections from '../client/commandCollections.js'
 import type { Message } from 'discord.js'
+import getGuildPrefix from '../database/getGuildPrefix.js'
 
 client.on(Events.MessageCreate, async (message: Message) => {
-  // Prefix
-  if (!message.guild) return;
-
-  const result = Db
-    .prepare(`SELECT prefix FROM guild WHERE id=?`)
-    .get(message.guild.id) as { prefix: string } | undefined;
-  
-  const {prefix} = result ?? { prefix: process.env.BOT_PREFIX ?? '>' };
-
-  // If message Author is a bot 
-  if (message.author.bot) return;
+const prefix = getGuildPrefix(message) as string;
   
   // If message starts with prefix
   if (message.content.startsWith(prefix)) {
