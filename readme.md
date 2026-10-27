@@ -114,3 +114,6 @@ Run the start script defined in `package.json` to launch the bot:
 ```bash
 npm start
 ```
+
+## Todo
+- [ ] Make help select menu system
