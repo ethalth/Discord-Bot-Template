@@ -47,6 +47,7 @@ for (const command of  categoryDirectories) {
   // "commandType": "utility, eco etc"
   //}
   for (const entry of categoryEntries.filter(e => e.isDirectory())) {
+    if (entry.name === 'meta') continue;
     commandDirectories.push({ 
       fileName: entry.name, 
       filePath: entry.parentPath + '/' + entry.name,
