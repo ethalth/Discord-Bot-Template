@@ -117,3 +117,4 @@ npm start
 
 ## Todo
 - [ ] Make help select menu system
+- [ ] Add option in meta where I can get an emoji to be the folder ICON for that category
