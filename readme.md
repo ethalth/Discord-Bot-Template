@@ -122,3 +122,5 @@ npm start
 - [ ] Add a way to not read folders starting with a `.`
 - [ ] In examples, add a `.md` to display how to create a valid folder
 - [ ] Add checks for meta folders
+- [ ] Create support for using the lang folder
+- [ ] Create a config command to be able to switch languages
