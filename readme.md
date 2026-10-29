@@ -117,6 +117,7 @@ npm start
 
 ## Todo
 - [ ] Make help select menu system
+- [ ] If no menu options, make display say no commands found
 - [ ] Add option in meta where I can get an emoji to be the folder ICON for that category
 - [ ] Do checks for valid emojis
 - [ ] Add a way to not read folders starting with a `.`
@@ -124,3 +125,7 @@ npm start
 - [ ] Add checks for meta folders
 - [ ] Create support for using the lang folder
 - [ ] Create a config command to be able to switch languages
+- [ ] Slash command localisation
+- [ ] Make prefix command have args
+- [ ] Add a way to filter empty category types (help command)
+- [ ] Add the actual commands display in 
