@@ -118,3 +118,7 @@ npm start
 ## Todo
 - [ ] Make help select menu system
 - [ ] Add option in meta where I can get an emoji to be the folder ICON for that category
+- [ ] Do checks for valid emojis
+- [ ] Add a way to not read folders starting with a `.`
+- [ ] In examples, add a `.md` to display how to create a valid folder
+- [ ] Add checks for meta folders
