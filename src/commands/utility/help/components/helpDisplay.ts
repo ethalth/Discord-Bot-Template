@@ -2,9 +2,10 @@ import { ContainerBuilder, ActionRowBuilder, StringSelectMenuBuilder, StringSele
 import colors from '#root/dist/src/assets/colors.js'
 import client from "#root/dist/src/client/client.js"
 import getCommandCategories from '#root/dist/src/handlers/discoverCommandCategories.js'
+import createCommandDisplay from './commandDisplay.js'
 import type { FileMetadata, CategoryMetadata } from '#root/dist/src/types/helpDisplay.js'
 
-async function createHelpDisplay(commandCategory?: string, page?: number): Promise<ContainerBuilder>{
+async function createHelpDisplay(showEmptyFolders: boolean, commandCategory?: string, page?: number): Promise<ContainerBuilder>{
 
   // All select menus we want to push onto the container
   const selectMenus: StringSelectMenuBuilder[] = [];
@@ -17,7 +18,7 @@ async function createHelpDisplay(commandCategory?: string, page?: number): Promi
   // Amount of needed select menus
   const selectMenuAmount = Math.ceil(commandCategories.length / maxSelectOptions);
 
-  const newContainer = new ContainerBuilder()
+  let newContainer: ContainerBuilder = new ContainerBuilder()
     .setAccentColor(Number(colors.neutral))
     .addTextDisplayComponents((TextDisplay) => TextDisplay
       .setContent(`# ${client.user?.displayName ?? client.user?.username}`))
@@ -59,10 +60,34 @@ async function createHelpDisplay(commandCategory?: string, page?: number): Promi
 
 
   }
-  return newContainer;
+  // function args handlers
+
+  // if no options were present
+  if (commandCategories.length === 0) {
+    newContainer = new ContainerBuilder()
+      .setAccentColor(Number(colors.danger))
+      .addTextDisplayComponents((TextDisplay) => TextDisplay
+        .setContent('No command categories were found!'))
+  }
+
+  // If {page} was the only arg not empty
+  else if (!commandCategory && page) {
+    newContainer = new ContainerBuilder()
+      .setAccentColor(Number(colors.danger))
+      .addTextDisplayComponents((TextDisplay) => TextDisplay
+        .setContent('You must input a command Category before choosing a page.'));
+  }
+
+  // If user chose a commandCategory
+  else if (commandCategory) {
+    const chosenPage = page ?? 0;
+    newContainer = createCommandDisplay(commandCategory, chosenPage);
+    
+  }
+  return newContainer
 }
 
 
 export default createHelpDisplay;
 
-createHelpDisplay()
+createHelpDisplay(false)
