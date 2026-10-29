@@ -81,7 +81,7 @@ async function createHelpDisplay(showEmptyFolders: boolean, commandCategory?: st
   // If user chose a commandCategory
   else if (commandCategory) {
     const chosenPage = page ?? 0;
-    newContainer = createCommandDisplay(commandCategory, chosenPage);
+    newContainer = await createCommandDisplay(commandCategory, chosenPage);
     
   }
   return newContainer

@@ -128,4 +128,5 @@ npm start
 - [ ] Slash command localisation
 - [ ] Make prefix command have args
 - [ ] Add a way to filter empty category types (help command)
-- [ ] Add the actual commands display in 
+- [ ] Add the actual commands display in
+- [ ] Let getPrefix use interactions.
